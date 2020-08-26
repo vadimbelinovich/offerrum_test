@@ -1,0 +1,45 @@
+@import "utils/reset";
+@import "utils/vars";
+
+body{
+  font-family: $mainFont;
+  background-color: $bg;
+}
+
+// Links
+a {
+  text-decoration: none;
+  color: $white;
+
+  &:active,
+  &:hover {
+    outline: 0;
+    text-decoration: underline;
+  }
+}
+
+.wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  padding: 0 10px;
+  width: 100%;
+  max-width: 1324px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+@import "./_header";
+@import "./_main";
+@import "./_order";
+@import "./_button";
+@import "./_burger";

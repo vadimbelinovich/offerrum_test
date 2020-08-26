@@ -1,0 +1,14 @@
+.button{
+  & button{
+    border-radius: 7px;
+    background-color: $yellowText;
+    font-size: $regularFz;
+    line-height: 1.2;
+    padding: 17px 56px;
+    transition: .2s;
+    cursor: pointer;
+    &:hover{
+      background-color: lighten($yellowText, 20%);;
+    }
+  }
+}

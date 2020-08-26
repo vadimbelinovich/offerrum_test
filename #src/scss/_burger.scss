@@ -1,0 +1,233 @@
+.burger {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+
+  & .menu-switch{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    transform: translateZ(0);
+    z-index: -1;
+    
+    & span,
+    &::before,
+    &::after{
+      content: '';
+      width: 26px;
+      height: 2px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -13px;
+      margin-top: -1px;
+      background-color: $white;
+      transition: all 0.3s ease-in-out;
+      transform: translateZ(0);
+    }
+
+    & span{
+      width: 20px;
+    }
+
+    &::before{
+      margin-top: -8px;
+    }
+
+    &::after{
+      margin-top: 6px;
+    }
+  }
+
+  & #menu-switch {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  & #menu-switch:not(:checked) ~ .menu-switch:hover span {
+    width: 26px;
+  }
+
+  & #menu-switch:not(:checked) ~ .menu-switch:hover::before, 
+  & #menu-switch:not(:checked) ~ .menu-switch:hover::after {
+      width: 20px;
+  }
+
+  & #menu-switch:checked ~ .menu-switch {
+    background-color: $white;
+  }
+
+  & #menu-switch:checked ~ .menu-switch span {
+    opacity: 0;
+    width: 26px;
+    transform: rotate(350deg);
+  }
+
+  & #menu-switch:checked ~ .menu-switch::before,
+  & #menu-switch:checked ~ .menu-switch::after{
+    margin-top: -1px;
+    background-color: $bg;
+  }
+
+  & #menu-switch:checked ~ .menu-switch::before {
+      transform: rotate(45deg);
+  }
+
+  & #menu-switch:checked ~ .menu-switch::after {
+    transform: rotate(-45deg);
+}
+
+  & #navigation{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    top: 80px;
+    left: 0;
+    justify-content: center;
+    background: $bg;
+    transition: all 0.3s ease-in-out;
+    transform: translate(0, 90px);
+    opacity: 0;
+    pointer-events: none;
+
+    & ul{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align:  center;
+      flex: auto;
+
+      & li{
+        transition: .2s;
+        margin-bottom: 10px;
+        a{
+          font-size: 18px;
+          text-transform: initial;
+        }
+
+        &.active,
+        &:hover{
+          & a{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  & #menu-switch:checked ~ #navigation{
+    pointer-events: initial;
+    opacity: 1;
+    transform: translate(0, 0);
+    cursor: default;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: $desktop) {
+  .burger {
+    order: 2;
+    width: auto;
+    cursor: default;
+    position: relative;
+  
+    & .menu-switch{
+      display: none;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      transform: translateZ(0);
+      background-color: $white;
+      
+      & span,
+      &::before,
+      &::after{
+        content: '';
+        width: 26px;
+        height: 2px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -13px;
+        margin-top: -1px;
+        transition: all 0.3s ease-in-out;
+        transform: translateZ(0);
+      }
+  
+      & span{
+        width: 20px;
+      }
+  
+      &::before{
+        margin-top: -8px;
+      }
+  
+      &::after{
+        margin-top: 6px;
+      }
+    }
+
+    & #menu-switch {
+      display: none;
+    }
+  
+    & #navigation{
+      position: relative;
+      opacity: 1;
+      left: auto;
+      top: auto;
+      justify-content: space-around;
+      background-color: transparent;
+      transform: none;
+      height: 100%;
+      pointer-events: visible;
+
+      & ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        & li {
+          text-align: left;
+          margin-bottom: 0;
+          padding: 0 10px;
+          cursor: pointer;
+          & a{
+            font-size: 16px;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $mdDesktop) {
+  .burger {
+  
+    & #navigation{
+
+      & ul {
+
+        & li {
+          padding: 0 24px;
+          & a{
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

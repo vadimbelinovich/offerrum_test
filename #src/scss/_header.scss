@@ -1,0 +1,46 @@
+header.header{
+  padding: 0;
+  width: 100%;
+  background-color: $bg;
+  position: fixed;
+  z-index: 1;
+  @media(min-width: $desktop) {
+    position: relative;
+  }
+  & .container{
+    padding: 0 10px 0 0;
+    display: flex;
+    align-items: center;
+    @media(min-width: $desktop) {
+      padding: 0 10px;
+    }
+  }
+  & .busket{
+    width: 70px;
+    position: relative;
+    text-align: right;
+    @media(min-width: $desktop) {
+      order: 3;
+      width: 32px;
+      margin-right: 16px;
+    }
+    & span.busket__amount{
+      position: absolute;
+      border-radius: 50px;
+      background-color: $yellowText;
+      width: 16px;
+      height: 16px;
+      right: -6px;
+      bottom: -8px;
+      line-height: 16px;
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+  & .logo{
+    @media(min-width: $desktop) {
+      order: 1;
+      margin-right: 10px;
+    }
+  }
+}
